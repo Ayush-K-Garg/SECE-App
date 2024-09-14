@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:sece_2/footer.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class EventsPage extends StatefulWidget {
@@ -12,19 +13,18 @@ class _EventsPageState extends State<EventsPage> {
     {
       'title': 'Card Event 1',
       'description': 'Description for card event 1',
-      'image': 'assets/event1.jpg', // Replace with your asset path
+      'image': 'assets2/code2.jpg', // Replace with your asset path
     },
     {
       'title': 'Card Event 2',
       'description': 'Description for card event 2',
-      'image': 'assets/event2.jpg',
+      'image': 'assets2/code3.jpg',
     },
     {
       'title': 'Card Event 3',
       'description': 'Description for card event 3',
-      'image': 'assets/event3.jpg',
+      'image': 'assets2/code1.jpg',
     },
-    // Add more card events here
   ];
 
   Map<DateTime, List<Map<String, String>>> calendarEvents = {
@@ -89,126 +89,180 @@ class _EventsPageState extends State<EventsPage> {
       appBar: AppBar(
         title: Text('Events'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'EVENTS',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ),
-            CarouselSlider.builder(
-              itemCount: eventCards.length,
-              itemBuilder: (context, index, realIndex) {
-                final event = eventCards[index];
-                return Container(
-                  height: MediaQuery.of(context).size.height * 0.8,
-                  child: Card(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-                    elevation: 8,
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          event['image'] ?? 'assets/about.png',
-                          height: MediaQuery.of(context).size.height * 0.5,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          event['title'] ?? 'No Title',
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-                          child: Text(
-                            event['description'] ?? 'No description available',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ],
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'EVENTS',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
-                );
-              },
-              options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * 0.8,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                viewportFraction: 0.85,
+                  CarouselSlider.builder(
+                    itemCount: eventCards.length,
+                    itemBuilder: (context, index, realIndex) {
+                      final event = eventCards[index];
+                      return Container(
+                        height: MediaQuery.of(context).size.height * 0.8,
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0)),
+                          elevation: 8,
+                          margin: EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                event['image'] ?? 'assets/about.png',
+                                height: MediaQuery.of(context).size.height * 0.4,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                event['title'] ?? 'No Title',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12.0, vertical: 8.0),
+                                child: Text(
+                                  event['description'] ??
+                                      'No description available',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      viewportFraction: 0.75,
+                      aspectRatio: 1.2,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'Event Calendar',
+                      style:
+                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Container(
+                    height: 400, // Adjusted height for TableCalendar
+                    child: TableCalendar(
+                      focusedDay: _focusedDay,
+                      firstDay: DateTime(2023),
+                      lastDay: DateTime(2025),
+                      headerStyle: HeaderStyle(
+                        formatButtonVisible: false, // Hides the "2 weeks" format button
+                        titleCentered: true, // Centers the month title (optional)
+                      ),
+                      calendarStyle: CalendarStyle(
+                        todayDecoration: BoxDecoration(
+                          color: Colors.orange,
+                          shape: BoxShape.circle,
+                        ),
+                        selectedDecoration: BoxDecoration(
+                          color: Colors.blue, // Color for selected day
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      eventLoader: _getEventsForDay,
+                      selectedDayPredicate: (day) {
+                        return isSameDay(_selectedDay, day);
+                      },
+                      onDaySelected: (selectedDay, focusedDay) {
+                        setState(() {
+                          _selectedDay = selectedDay;
+                          _focusedDay = focusedDay;
+                          _selectedEvents = _getEventsForDay(selectedDay);
+                        });
+                        print('Selected day: $_selectedDay'); // Debugging
+                        print('Selected events: $_selectedEvents'); // Debugging
+                      },
+                      calendarBuilders: CalendarBuilders(
+                        defaultBuilder: (context, day, focusedDay) {
+                          // Check if the day has events
+                          final events = _getEventsForDay(day);
+                          if (events.isNotEmpty) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: Colors.green, // Set green background for event days
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '${day.day}',
+                                  style: TextStyle(
+                                    color: Colors.white, // Text color on event days
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          return null;
+                        },
+                        markerBuilder: (context, date, events) {
+                          if (events.isNotEmpty) {
+                            return Positioned(
+                              right: 1,
+                              bottom: 1,
+                              child: _buildEventsMarker(date, events),
+                            );
+                          }
+                          return SizedBox();
+                        },
+                      ),
+                    )
+
+
+                  ),
+                  _selectedEvents.isNotEmpty
+                      ? ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: _selectedEvents.length,
+                    itemBuilder: (context, index) {
+                      final event = _selectedEvents[index];
+                      return ListTile(
+                        title: Text(
+                          event['title'] ?? '',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
+                        subtitle: Text(event['description'] ?? ''),
+                      );
+                    },
+                  )
+                      : Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text('No events for selected day'),
+                  ),
+
+                  Footer(),
+                ],
+
               ),
+
+
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Event Calendar',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-            TableCalendar(
-              focusedDay: _focusedDay,
-              firstDay: DateTime(2023),
-              lastDay: DateTime(2025),
-              calendarStyle: CalendarStyle(
-                markerDecoration: BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                todayDecoration: BoxDecoration(color: Colors.orange, shape: BoxShape.circle),
-              ),
-              eventLoader: _getEventsForDay,
-              selectedDayPredicate: (day) {
-                return isSameDay(_selectedDay, day);
-              },
-              onDaySelected: (selectedDay, focusedDay) {
-                setState(() {
-                  _selectedDay = selectedDay;
-                  _focusedDay = focusedDay;
-                  _selectedEvents = _getEventsForDay(selectedDay);
-                });
-                print('Selected day: $_selectedDay'); // Debugging
-                print('Selected events: $_selectedEvents'); // Debugging
-              },
-              calendarBuilders: CalendarBuilders(
-                markerBuilder: (context, date, events) {
-                  if (events.isNotEmpty) {
-                    return _buildEventsMarker(date, events);
-                  }
-                  return SizedBox();
-                },
-              ),
-            ),
-            _selectedEvents.isNotEmpty
-                ? ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: _selectedEvents.length,
-              itemBuilder: (context, index) {
-                final event = _selectedEvents[index];
-                return ListTile(
-                  title: Text(event['title'] ?? ''),
-                  subtitle: Text(event['description'] ?? ''),
-                );
-              },
-            )
-                : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text('No events for selected day'),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Footer Content Here',
-                style: TextStyle(color: Colors.grey, fontSize: 16),
-              ),
-            ),
-          ],
-        ),
+          ),
+
+         // Footer moved outside of Expanded to ensure it stays at the bottom
+        ],
       ),
     );
   }

@@ -190,6 +190,13 @@ class MembersPage3 extends StatelessWidget {
       email: "rajmayank528@gmail.com",
       linkedinUrl: "https://www.linkedin.com/in/mayank-raj678",
     ),
+    Alumni(
+      name: "Nityanand Kumar",
+      position: "Member",
+      imageUrl: "https://drive.google.com/uc?id=1NftFzxrNWNUAFUab99FuCQ_FFeFH1FTH",
+      email: "nityanandkumar752@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/nityanand-kumar-7399942b5/",
+    ),
     
 
     // Add more alumni details here

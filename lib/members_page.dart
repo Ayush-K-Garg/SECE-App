@@ -137,6 +137,15 @@ class MembersPage extends StatelessWidget {
       email: "chandan123sxs@gmail.com",
       linkedinUrl: "https://www.linkedin.com/in/chandan-kumar-35b8a4243?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     ),
+    Alumni(
+      name: "Ankur Kumar",
+      position: "CP Head ",
+      imageUrl: "https://drive.google.com/uc?id=1KoP7NAuJgpdQsLQncH5Tbl--7BF9ilMz",
+      email: "ankuraj2708@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/ankur-kumar-686339235/",
+    ),
+
+
 
 
 
