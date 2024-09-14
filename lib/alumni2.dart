@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class AlumniPage extends StatelessWidget {
+class AlumniPage2 extends StatelessWidget {
   final List<Alumni> alumniList = [
     Alumni(
       name: "Mohit Ranjan",
@@ -38,7 +38,7 @@ class AlumniPage extends StatelessWidget {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xFF00008B) // Semi-transparent background
+                    color: Color(0xFF00008B) // Semi-transparent background
                 ),
                 child: Row(
                   children: <Widget>[
@@ -106,36 +106,36 @@ class AlumniPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: screenHeight,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/about.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Column(
-            children: [
-              AppBar(
-          centerTitle: true,
-                title: Text(
-          'ALUMNI',
-            style: GoogleFonts.itim(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF00008B),
-            ),
-          ),
-                backgroundColor: Colors.transparent,
-              leading: Builder(
-                     builder: (BuildContext context) {
-                return IconButton(
-              icon: Icon(Icons.menu),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
-        );}),
-                elevation: 0,
+            height: screenHeight,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/about.png"),
+                fit: BoxFit.cover,
               ),
+            ),
+            child: Column(
+                children: [
+                AppBar(
+                centerTitle: true,
+                title: Text(
+                  'ALUMNI',
+                  style: GoogleFonts.itim(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF00008B),
+                  ),
+                ),
+                backgroundColor: Colors.transparent,
+                leading: Builder(
+                builder: (BuildContext context) {
+        return IconButton(
+        icon: Icon(Icons.menu),
+        onPressed: () {
+        Scaffold.of(context).openDrawer();
+        },
+        );}),
+        elevation: 0,
+      ),
 
 
 
@@ -411,10 +411,10 @@ class AlumniPage extends StatelessWidget {
       SizedBox(height: 45,),
       Spacer(), // Pushes the footer to the bottom if there's remaining space
       Footer(), // Footer at the end of the page
-            ],
-          ),
-        ),
-      ),
+      ],
+    ),
+    ),
+    ),
     );
   }
 }

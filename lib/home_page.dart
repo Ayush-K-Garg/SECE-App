@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
-
+import 'package:google_fonts/google_fonts.dart';
 void main() {
   runApp(MyApp());
 }
@@ -112,15 +112,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   children: <Widget>[
                     Image.asset(
                       'assets/moon.png',
-                      width: 80,
-                      height: 80,
+                      width: 60,
+                      height: 60,
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 1),
                     Text(
-                      'Society\nof ECE',
+                      'Society of Electronics &\nCommunication Engg.',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 18,
                       ),
                     ),
                   ],
@@ -232,13 +232,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                           return Opacity(
                             opacity: _opacityAnimation.value,
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
+                              padding: const EdgeInsets.only(left: 10.0),
                               child: Text(
-                                'SECE: Where Innovation meets excellence',
+                                'Shaping Electronics,\nTransforming Communication,\nConnecting the Future',
                                 textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.bold,
+                                style: GoogleFonts.montserratAlternates(
+                                  fontSize: 30,
+
                                   color: Colors.white,
                                 ),
                               ),

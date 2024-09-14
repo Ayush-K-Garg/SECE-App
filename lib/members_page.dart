@@ -139,6 +139,7 @@ class MembersPage extends StatelessWidget {
     ),
 
 
+
     // Add more alumni details here
   ];
 
@@ -149,32 +150,27 @@ class MembersPage extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/about.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
+
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5), // Semi-transparent background
+                  color: Color(0xFF00008B), // Semi-transparent background
                 ),
                 child: Row(
                   children: <Widget>[
                     Image.asset(
                       'assets/moon.png',
-                      width: 80,
-                      height: 80,
+                      width: 60,
+                      height: 60,
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 1),
                     Text(
-                      'Society\nof ECE',
+                      'Society of Electronics &\nCommunication Engg.',
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
+                        color: Colors.white,
+                        fontSize: 18,
                       ),
                     ),
                   ],
@@ -229,15 +225,22 @@ class MembersPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           height: screenHeight,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/about.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
+
           child: Column(
             children: [
               AppBar(
+                centerTitle: true,
+
+                title:
+          Text(
+          'MEMBERS',
+            style: GoogleFonts.itim(
+              fontSize: 34,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF3686F4),
+            ),
+
+          ),
                 backgroundColor: Colors.transparent,
                 leading: Builder(
                     builder: (BuildContext context) {
@@ -247,50 +250,76 @@ class MembersPage extends StatelessWidget {
                           Scaffold.of(context).openDrawer();
                         },
                       );}),
+
                 elevation: 0,
               ),
 
 
-              Text(
-                'MEMBERS',
-                style: GoogleFonts.itim(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                ),
-              ),
               SizedBox(height: 20),
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_circle_left_rounded, color: Colors.grey),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/Members3');
-                      // Action to be performed when left arrow is pressed
-                      print('Left arrow pressed');
-                    },
-                  ),
-                  Expanded(
-                    child: Text(
-                      'Batch of 2021-2025',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.grey,
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0,right:8 ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/Members');
+                      },
+                      icon: Icon(Icons.group,
+                          color: ModalRoute.of(context)?.settings.name == '/Members'
+                              ? Colors.white // Highlight the icon when on this page
+                              : Color(0xFF313B49)),
+                      label: Text(
+                        "2021-2025",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: ModalRoute.of(context)?.settings.name == '/Members'
+                                ? Colors.white // Highlight the text when on this page
+                                : Color(0xFF313B49)),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        backgroundColor: ModalRoute.of(context)?.settings.name == '/Members'
+                            ? Color(0xFF313B49) // Highlight the button background
+                            : Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8), // Rounded corners
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_circle_right_rounded, color: Colors.grey),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/Members3');
-                      // Action to be performed when right arrow is pressed
-                      print('Right arrow pressed');
-                    },
-                  ),
-                ],
+                    SizedBox(width: 5,),
+
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/Members3');
+                      },
+                      icon: Icon(Icons.group,
+                          color: ModalRoute.of(context)?.settings.name == '/Members3'
+                              ? Colors.white // Highlight the icon when on this page
+                              : Color(0xFF313B49)),
+                      label: Text(
+                        "2022-2026",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: ModalRoute.of(context)?.settings.name == '/Members3'
+                                ? Colors.white // Highlight the text when on this page
+                                : Color(0xFF313B49)),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        backgroundColor: ModalRoute.of(context)?.settings.name == '/Members3'
+                            ? Color(0xFF313B49) // Highlight the button background
+                            : Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8), // Rounded corners
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 10),
               Divider(
                 color: Colors.grey,
                 indent: 40,
@@ -314,14 +343,25 @@ class MembersPage extends StatelessWidget {
                   items: alumniList.map((alumni) {
                     return Builder(
                       builder: (BuildContext context) {
-                        return Container(
+                        return Container(decoration: BoxDecoration(
+                          color: Colors.white, // Background color of the card
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.3), // Shadow color with some opacity
+                              spreadRadius: 2, // How much the shadow spreads
+                              blurRadius: 6, // Blur radius
+                              offset: Offset(3, 3), // Horizontal and vertical offset of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(8), // Optional: To give rounded corners
+                        ),
 
                           child: Card(
 
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            elevation: 5,
+                            elevation: 8,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -334,7 +374,7 @@ class MembersPage extends StatelessWidget {
                                           Container(
                                             height: 150, // Adjusted for the green top part
                                             decoration: BoxDecoration(
-                                              color: Colors.green, // Top half in green
+                                              color: Color(0xFF3686F4), // Top half in green
                                               borderRadius: BorderRadius.only(
                                                 topLeft: Radius.circular(15),
                                                 topRight: Radius.circular(15),
@@ -344,7 +384,7 @@ class MembersPage extends StatelessWidget {
                                           Expanded(
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                color: Colors.white12,
+                                                color: Color(0xFF313B49),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft: Radius.circular(15),
                                                   bottomRight: Radius.circular(15),
@@ -359,14 +399,14 @@ class MembersPage extends StatelessWidget {
                                                     style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight: FontWeight.bold,
-                                                      color: Colors.green,
+                                                      color: Colors.white,
                                                     ),
                                                   ),
                                                   Text(
                                                     alumni.position,
                                                     style: TextStyle(
                                                       fontSize: 16,
-                                                      color: Colors.grey[600],
+                                                      color: Color(0xFF3686F4),
                                                     ),
                                                   ),
                                                   SizedBox(height: 5), // Reduced space between text
@@ -374,7 +414,7 @@ class MembersPage extends StatelessWidget {
                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                     children: [
                                                       IconButton(
-                                                        icon: Icon(Icons.email, color: Colors.green),
+                                                        icon: Icon(Icons.email, color: Colors.white),
                                                         onPressed: () async {
                                                           final Uri emailUri = Uri(
                                                             scheme: 'mailto',
@@ -396,7 +436,7 @@ class MembersPage extends StatelessWidget {
 
 
                                                       IconButton(
-                                                        icon: FaIcon(FontAwesomeIcons.linkedin, color: Colors.green),
+                                                        icon: FaIcon(FontAwesomeIcons.linkedin, color: Colors.white),
                                                         onPressed: () async {
                                                           final url = alumni.linkedinUrl;
                                                           if (await canLaunch(url)) {
@@ -484,7 +524,7 @@ class MembersPage extends StatelessWidget {
                   }).toList(),
                 ),
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: 45,),
               Spacer(), // Pushes the footer to the bottom if there's remaining space
               Footer(), // Footer at the end of the page
             ],

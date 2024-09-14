@@ -49,32 +49,27 @@ class _AboutPageState extends State<AboutPage> with SingleTickerProviderStateMix
       ),
       drawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/about.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
+
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5), // Semi-transparent background
+                  color: Color(0xFF00008B), // Semi-transparent background
                 ),
                 child: Row(
                   children: <Widget>[
                     Image.asset(
                       'assets/moon.png',
-                      width: 80,
-                      height: 80,
+                      width: 60,
+                      height: 60,
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 1),
                     Text(
-                      'Society\nof ECE',
+                      'Society of Electronics &\nCommunication Engg.',
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
+                        color: Colors.white,
+                        fontSize: 18,
                       ),
                     ),
                   ],
@@ -134,12 +129,7 @@ class _AboutPageState extends State<AboutPage> with SingleTickerProviderStateMix
           Expanded(
             child: Container(
               padding: EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/about.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
+
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
