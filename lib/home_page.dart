@@ -167,7 +167,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 onTap: () {
                   Navigator.pushNamed(context, '/Alumni');
                 },
+
+
               ),
+      ListTile(
+        leading: Icon(Icons.corporate_fare, color: Colors.white),
+        title: Text('Placement Masterclass', style: TextStyle(color: Colors.white)),
+        onTap: () {
+          Navigator.pushNamed(context, '/Placement');
+        },),
 
             ],
           ),

@@ -8,7 +8,7 @@ import 'about_page.dart';
 import 'events_page.dart';
 import 'home_page.dart';
 import 'alumni.dart';
-
+import 'placement.dart';
 void main() => runApp(SECEApp());
 
 class SECEApp extends StatelessWidget {
@@ -29,6 +29,7 @@ class SECEApp extends StatelessWidget {
         '/Members2':(context)=>MembersPage2(),
         '/Members3':(context)=>MembersPage3(),
         '/Alumni2':(context)=>AlumniPage2(),
+        '/Placement':(context)=>PlacementPage(),
 
 
       },
