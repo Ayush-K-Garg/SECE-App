@@ -160,7 +160,7 @@ class _NexusPageState extends State<NexusPage> {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xFF00008B), // Semi-transparent background
+                  color: Color(0xFF0A0549), // Semi-transparent background
                 ),
                 child: Row(
                   children: <Widget>[
@@ -222,6 +222,12 @@ class _NexusPageState extends State<NexusPage> {
                   Navigator.pushNamed(context, '/Alumni');
                 },
               ),
+              ListTile(
+                leading: Icon(Icons.corporate_fare, color: Colors.white),
+                title: Text('Placement Masterclass', style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.pushNamed(context, '/Placement');
+                },),
             ],
           ),
         ),

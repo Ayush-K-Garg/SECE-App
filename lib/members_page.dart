@@ -165,7 +165,7 @@ class MembersPage extends StatelessWidget {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xFF00008B), // Semi-transparent background
+                  color: Color(0xFF0A0549), // Semi-transparent background
                 ),
                 child: Row(
                   children: <Widget>[
@@ -227,6 +227,12 @@ class MembersPage extends StatelessWidget {
                   Navigator.pushNamed(context, '/Alumni');
                 },
               ),
+              ListTile(
+                leading: Icon(Icons.corporate_fare, color: Colors.black),
+                title: Text('Placement Masterclass', style: TextStyle(color: Colors.black)),
+                onTap: () {
+                  Navigator.pushNamed(context, '/Placement');
+                },),
             ],
           ),
         ),

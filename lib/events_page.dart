@@ -100,14 +100,14 @@ class _EventsPageState extends State<EventsPage> {
   ];
 
   Map<DateTime, List<Map<String, String>>> calendarEvents = {
-    DateTime.utc(2024, 9, 14): [
-      {'title': 'Calendar Event 1', 'description': 'Details of Calendar Event 1'}
+    DateTime.utc(2024, 10, 18): [
+      {'title': 'Event 1', 'description': 'Nexus Day 1'}
     ],
-    DateTime.utc(2024, 9, 18): [
-      {'title': 'Calendar Event 2', 'description': 'Details of Calendar Event 2'}
+    DateTime.utc(2024, 10, 19): [
+      {'title': 'Event 2', 'description': 'Nexus Day 2'}
     ],
-    DateTime.utc(2024, 9, 22): [
-      {'title': 'Calendar Event 3', 'description': 'Details of Calendar Event 3'}
+    DateTime.utc(2024, 10, 20): [
+      {'title': 'Event 3', 'description': 'Nexus Day 3'}
     ],
   };
 
@@ -167,7 +167,7 @@ class _EventsPageState extends State<EventsPage> {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xFF00008B), // Semi-transparent background
+                  color: Color(0xFF0A0549), // Semi-transparent background
                 ),
                 child: Row(
                   children: <Widget>[
@@ -229,6 +229,12 @@ class _EventsPageState extends State<EventsPage> {
                   Navigator.pushNamed(context, '/Alumni');
                 },
               ),
+              ListTile(
+                leading: Icon(Icons.corporate_fare, color: Colors.black),
+                title: Text('Placement Masterclass', style: TextStyle(color: Colors.black)),
+                onTap: () {
+                  Navigator.pushNamed(context, '/Placement');
+                },),
             ],
           ),
         ),
@@ -238,11 +244,11 @@ class _EventsPageState extends State<EventsPage> {
 
         title:
         Text(
-          'Events',
+          'EVENTS',
           style: GoogleFonts.itim(
             fontSize: 34,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Color(0xFF0A0549),
           ),
 
         ),
@@ -261,25 +267,14 @@ class _EventsPageState extends State<EventsPage> {
 
 
       body: Column(
-        children: [
-          SizedBox(height: 50,),
 
+        children: [
           Container(
 
             child: Expanded(
               child: SingleChildScrollView(
                 child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/about.png'), // Background image
-                      fit: BoxFit.cover,
-                      colorFilter: ColorFilter.mode(
-                        Colors.black.withOpacity(0.6), // Adjust the opacity level as needed
-                        BlendMode.dstATop,
-                      ),
-                    ),
-                    borderRadius: BorderRadius.circular(15), // Optional: for rounded corners
-                  ),
+
                   child: Column(
                     children: [
 
@@ -289,19 +284,8 @@ class _EventsPageState extends State<EventsPage> {
                   itemBuilder: (context, index, realIndex) {
                   final event = eventCards[index];
 
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white, // Background color of the card
-                      boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.3), // Shadow color with some opacity
-                                spreadRadius: 2, // How much the shadow spreads
-                                blurRadius: 6, // Blur radius
-                                offset: Offset(3, 3), // Horizontal and vertical offset of shadow
-                              ),
-                      ],
-                      borderRadius: BorderRadius.circular(8), // Optional: To give rounded corners
-                    ),
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 16.0,bottom: 8),
                     child: Card(
 
                     elevation: 8,
@@ -313,7 +297,7 @@ class _EventsPageState extends State<EventsPage> {
                     child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+
                     children: [
                     // Event title
                     Text(
@@ -357,23 +341,23 @@ class _EventsPageState extends State<EventsPage> {
                     height: 1.5,
                     ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 1),
 
                     // "Know More" button
                       ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
+                                      borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10.0),
+                                padding: EdgeInsets.symmetric(horizontal: 14.0,),
                               ),
                               onPressed: () {
                                 showModalBottomSheet(
-                  shape: RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
-                  ),
-                  context: context,
-                  builder: (BuildContext context) {
+                                      ),
+                                      context: context,
+                                      builder: (BuildContext context) {
                     return Container(
                       height: MediaQuery.of(context).size.height * 0.8, // Set modal height to 80% of screen
                       padding: EdgeInsets.all(16.0),
@@ -408,7 +392,7 @@ class _EventsPageState extends State<EventsPage> {
                         ),
                       ),
                     );
-                  },
+                                      },
                                 );
                               },
                               child: Text('Know More'),
@@ -422,7 +406,7 @@ class _EventsPageState extends State<EventsPage> {
                   );
                   },
                   options: CarouselOptions(
-                  height: MediaQuery.of(context).size.height * 0.5, // Adjust card height as needed
+                  height: MediaQuery.of(context).size.height * 0.6, // Adjust card height as needed
                   enlargeCenterPage: true,
                   autoPlay: true,
                   viewportFraction: 0.85, // Adjust this to show parts of adjacent cards
@@ -432,16 +416,21 @@ class _EventsPageState extends State<EventsPage> {
                   ),
 
 
-
+                  SizedBox(height: 40,),
 
                   Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.only(top: 16.0),
                         child: Text(
                           'Event Calendar',
                           style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          GoogleFonts.itim(fontSize: 26, fontWeight: FontWeight.bold),
                         ),
                       ),
+                      Divider(thickness: 2.5,
+                      color:Colors.orangeAccent,
+                      indent: 120,
+                      endIndent: 120,),
+                      SizedBox(height: 12,),
                       Container(
                         height: 400, // Adjusted height for TableCalendar
                         child: TableCalendar(
@@ -456,6 +445,7 @@ class _EventsPageState extends State<EventsPage> {
                             todayDecoration: BoxDecoration(
                               color: Colors.orange,
                               shape: BoxShape.circle,
+
                             ),
                             selectedDecoration: BoxDecoration(
                               color: Colors.blue, // Color for selected day
@@ -523,15 +513,16 @@ class _EventsPageState extends State<EventsPage> {
                             title: Text(
                               event['title'] ?? '',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18),
+                                  fontWeight: FontWeight.bold, fontSize: 22),
+                              textAlign: TextAlign.center,
                             ),
-                            subtitle: Text(event['description'] ?? ''),
+                            subtitle: Text(event['description'] ?? '',textAlign: TextAlign.center,),
                           );
                         },
                       )
                           : Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text('No events for selected day'),
+                        padding: const EdgeInsets.all(15),
+                        child: Text('No events for selected day',textAlign: TextAlign.center,),
                       ),
 
                       Footer(),
