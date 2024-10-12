@@ -24,6 +24,27 @@ class MembersPage extends StatelessWidget {
       linkedinUrl: "https://www.linkedin.com/in/manish-kumar-59bb51223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     ),
     Alumni(
+      name: "Ritwik Ranjan Pathak",
+      position: "General Secretary",
+      imageUrl: "https://drive.google.com/uc?export=view&id=1FpiAYMBG0Fw6QwOcryJacCJTDV5_Iobq",
+      email: "ritwikrocks26@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/ritwik-ranjan-pathak-a2076a25b/",
+    ),
+    Alumni(
+      name: "Rishav Kumar",
+      position: "Treasurer",
+      imageUrl: "https://drive.google.com/uc?id=10rRRRRHU2fimomhq5gm1yzSlM4qwfkwV",
+      email: "rishavjha771@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/rishav-kumar-a96175190/",
+    ),
+    Alumni(
+      name: "Anshu Kumari ",
+      position: "Joint Secretary ",
+      imageUrl: "https://drive.google.com/uc?id=1b3vESdTPcy8J3cm5bBOvcPM8d2sW2Omx",
+      email: "anshuk97984@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/anshu-kumari-333805223",
+    ),
+    Alumni(
       name: "Anurag Sarkar ",
       position: "Technical Secretary ",
       imageUrl: "https://drive.google.com/uc?id=1MD7ykk7ZtwD3wUdVHoqwgzmCywi3jwDw",
@@ -93,17 +114,11 @@ class MembersPage extends StatelessWidget {
       email: "prajjwal.jain1008@gmail.com",
       linkedinUrl: "http://linkedin.com/prajjwal-jain",
     ),
-    Alumni(
-      name: "Anshu Kumari ",
-      position: "Joint Secretary ",
-      imageUrl: "https://drive.google.com/uc?id=1b3vESdTPcy8J3cm5bBOvcPM8d2sW2Omx",
-      email: "anshuk97984@gmail.com",
-      linkedinUrl: "https://www.linkedin.com/in/anshu-kumari-333805223",
-    ),
+
     Alumni(
       name: "Indrani Pal",
       position: "Member",
-      imageUrl: "https://drive.google.com/uc?id=1-MLo0HjdlmwDsiVkB0xEBmKUIyXp_SZr",
+      imageUrl: "https://drive.google.com/uc?export=view&id=1-JisNhj8K1o9d0XaPGqJBsH7lfjnW2_5",
       email: "2021ugec003@nitjsr.ac.in",
       linkedinUrl: "https://www.linkedin.com/in/indrani-pal-ba0607238",
     ),Alumni(
@@ -118,12 +133,6 @@ class MembersPage extends StatelessWidget {
       imageUrl: "https://drive.google.com/uc?id=11tPQSeztpacVbTJ3Jh-RwCCjx_ckdXW6",
       email: "abhishekdeogharia07@gmail.com",
       linkedinUrl: "https://www.linkedin.com/in/abhishek-deogharia-213941230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    ),Alumni(
-      name: "Rishav Kumar",
-      position: "Treasurer",
-      imageUrl: "https://drive.google.com/uc?id=10rRRRRHU2fimomhq5gm1yzSlM4qwfkwV",
-      email: "rishavjha771@gmail.com",
-      linkedinUrl: "https://www.linkedin.com/in/rishav-kumar-a96175190/",
     ),Alumni(
       name: "Ankit Raj",
       position: "Creative Head",
@@ -143,6 +152,20 @@ class MembersPage extends StatelessWidget {
       imageUrl: "https://drive.google.com/uc?id=1KoP7NAuJgpdQsLQncH5Tbl--7BF9ilMz",
       email: "ankuraj2708@gmail.com",
       linkedinUrl: "https://www.linkedin.com/in/ankur-kumar-686339235/",
+    ),
+    Alumni(
+      name: "Hemanth Kumar",
+      position: "EM Team ",
+      imageUrl: "https://drive.google.com/uc?export=view&id=1IlMRHDpvT3Vnixzbh532qEbGoPvI2GIt",
+      email: "hemanth.meesala2004@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/hemanth-meesala/",
+    ),
+    Alumni(
+      name: "Vivek Rawani",
+      position: "Web/App Head ",
+      imageUrl: "https://drive.google.com/uc?id=1kdDG2zsPM1ozWTKun4ucqC1tssxqPuZy",
+      email: "kumarrawanivivek@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/vivek-rawani-70a856221",
     ),
 
 
@@ -495,9 +518,9 @@ class MembersPage extends StatelessWidget {
                                                       child: CircularProgressIndicator(), // Show loading indicator
                                                     ),
                                                     errorWidget: (context, url, error) => Icon(
-                                                      Icons.error,
+                                                      Icons.person,
                                                       size: 50,
-                                                      color: Colors.red, // Show error icon if image fails to load
+                                                      color: Colors.grey, // Show error icon if image fails to load
                                                     ),
                                                   ),
                                                 ),
@@ -515,9 +538,9 @@ class MembersPage extends StatelessWidget {
                                                 height: 200,
                                                 placeholder: (context, url) => CircularProgressIndicator(), // Loading placeholder
                                                 errorWidget: (context, url, error) => Icon(
-                                                  Icons.error,
+                                                  Icons.person,
                                                   size: 50,
-                                                  color: Colors.red, // Error icon for failed loading
+                                                  color: Colors.grey, // Error icon for failed loading
                                                 ),
                                               ),
                                             ),

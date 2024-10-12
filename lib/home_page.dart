@@ -190,7 +190,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   height: MediaQuery.of(context).size.height * 0.78,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/blue4.png'),
+                      image: AssetImage('assets/bg.png'),
                       fit: BoxFit.cover,
                     ),
                   ),

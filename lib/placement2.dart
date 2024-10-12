@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:sece_2/footer.dart';
 
-class PlacementPage extends StatelessWidget {
+class PlacementPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,67 +80,67 @@ class PlacementPage extends StatelessWidget {
             children: [
               SizedBox(height: 25,),
               Padding(
-                  padding: const EdgeInsets.only(left: 8.0,right:8 ),
+                padding: const EdgeInsets.only(left: 8.0,right:8 ),
 
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/Placement2');
-                        },
-                        icon: Icon(Icons.group,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/Placement2');
+                      },
+                      icon: Icon(Icons.group,
+                          color: ModalRoute.of(context)?.settings.name == '/Placement2'
+                              ? Colors.white // Highlight the icon when on this page
+                              : Color(0xFF313B49)),
+                      label: Text(
+                        "2019-2023",
+                        style: TextStyle(
+                            fontSize: 18,
                             color: ModalRoute.of(context)?.settings.name == '/Placement2'
-                                ? Colors.white // Highlight the icon when on this page
+                                ? Colors.white // Highlight the text when on this page
                                 : Color(0xFF313B49)),
-                        label: Text(
-                          "2019-2023",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: ModalRoute.of(context)?.settings.name == '/Placement2'
-                                  ? Colors.white // Highlight the text when on this page
-                                  : Color(0xFF313B49)),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                          backgroundColor: ModalRoute.of(context)?.settings.name == '/Placement2'
-                              ? Color(0xFF313B49) // Highlight the button background
-                              : Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8), // Rounded corners
-                          ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        backgroundColor: ModalRoute.of(context)?.settings.name == '/Placement2'
+                            ? Color(0xFF313B49) // Highlight the button background
+                            : Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8), // Rounded corners
                         ),
                       ),
-                      SizedBox(width: 5,),
+                    ),
+                    SizedBox(width: 5,),
 
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/Placement');
-                        },
-                        icon: Icon(Icons.group,
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/Placement');
+                      },
+                      icon: Icon(Icons.group,
+                          color: ModalRoute.of(context)?.settings.name == '/Placement'
+                              ? Colors.white // Highlight the icon when on this page
+                              : Color(0xFF313B49)),
+                      label: Text(
+                        "2020-2024",
+                        style: TextStyle(
+                            fontSize: 18,
                             color: ModalRoute.of(context)?.settings.name == '/Placement'
-                                ? Colors.white // Highlight the icon when on this page
+                                ? Colors.white // Highlight the text when on this page
                                 : Color(0xFF313B49)),
-                        label: Text(
-                          "2020-2024",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: ModalRoute.of(context)?.settings.name == '/Placement'
-                                  ? Colors.white // Highlight the text when on this page
-                                  : Color(0xFF313B49)),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                          backgroundColor: ModalRoute.of(context)?.settings.name == '/Placement'
-                              ? Color(0xFF313B49) // Highlight the button background
-                              : Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8), // Rounded corners
-                          ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        backgroundColor: ModalRoute.of(context)?.settings.name == '/Placement'
+                            ? Color(0xFF313B49) // Highlight the button background
+                            : Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8), // Rounded corners
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
 
 
               ),
@@ -152,59 +152,73 @@ class PlacementPage extends StatelessWidget {
                 thickness: 2,
               ),
               _buildProfileCard(
-                name: 'Vikash Kumar',
-                imageUrl: 'assets2/vikash2.png',
-                image: 'assets2/vikash.png',
-                companyLogo: 'assets2/deshaw.png',
+                name: 'Raman Kumar',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1t524Rhei1NuDjLnga7F8HtO9vJMIdJuP',
+                image: 'https://drive.google.com/uc?export=view&id=1Pk06ApdruTgvOpq80o4SyvyueYVYXs-o',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1hDg7ytsoZ_eIlK5U64lViYgKfqW4dYaH',
                 context: context,
               ),
               _buildProfileCard(
-                name: 'Ronit Ranjan',
-                imageUrl: 'assets2/ronit2.png',
-                image: 'assets2/ronit.png',
-                companyLogo: 'assets2/money.png',
+                name: 'Shashank Shekhar',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1Z95N5pTtuhWpLPhIp454zsyUvwJRVe1M',
+                image: 'https://drive.google.com/uc?export=view&id=1YB1zUkBIyFmDRi4GQ_mOx3XAg0U_qF3h',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1PqV_4zU4oQaDH_WEkDkTjlpeUEqS9h9H',
                 context: context,
               ),
               _buildProfileCard(
-                name: 'Mohit Ranjan',
-                imageUrl: 'assets2/mohit2.png',
-                image: 'assets2/mohit.png',
-                companyLogo: 'assets2/pal.png',
+                name: 'Ritika Kumari',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=19xXrcp7Fqv2tM0RXxE495FM0QyKzqJp_',
+                image: 'https://drive.google.com/uc?export=view&id=1tvWK51ZTaOugttf1o-wvFSErOo71pEve',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1bUFq605rDf-m7n2v8K2wPsaNO2sP0Fw-',
                 context: context,
               ),
               _buildProfileCard(
-                name: 'Aditya Kumar',
-                imageUrl: 'assets2/aditya2.png',
-                image: 'assets2/aditya.png',
-                companyLogo: 'assets2/intuit.png',
+                name: 'Ayush Kumar Chaudhary',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1LAGiY6XTLTn-Rpnu6_zwRxxVY9JIIqWH',
+                image: 'https://drive.google.com/uc?export=view&id=1nLwZwI8Bo0c30-CtzMzLAG29Wogxt9S4',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1mD5Cn_6hB0H4dzdt5mJKdQARW9zz-Fo2',
                 context: context,
               ),
               _buildProfileCard(
-                name: 'Yogesh Kumar',
-                imageUrl: 'assets2/yogesh2.png',
-                image: 'assets2/yogesh.png',
-                companyLogo: 'assets2/arcesium.png',
+                name: 'Aditya Raj Srivastava',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1m5GgvG4gjZxbbEoGGatR6f5LeOXuQqoY',
+                image: 'https://drive.google.com/uc?export=view&id=1Y5SJfzxAIUSgxQ2pFnL-ocfD7OwjMXpB',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1IM17VYdfAn_U6OX8bRQb5dP8ULpe1TfL',
                 context: context,
               ),
               _buildProfileCard(
-                name: 'Rohit Kumar',
-                imageUrl: 'assets2/rohit2.png',
-                image: 'assets2/rohit.png',
-                companyLogo: 'assets2/lowes.png',
+                name: 'Priya Singh',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1l6aB8JRM106jD3cNlW_l7mNWLOPSDVzm',
+                image: 'https://drive.google.com/uc?export=view&id=1EmGtkZhSSmYIHgzV6a_JoG6LwDakNzy4',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1ZPHpXhtDz2ny4kDCKgNVPDWoPuky4Kpe',
                 context: context,
               ),
               _buildProfileCard(
-                name: 'Ishika Kumari',
-                imageUrl: 'assets2/ishika2.png',
-                image: 'assets2/ishika.png',
-                companyLogo: 'assets2/invesco.png',
+                name: 'Naved Sohail',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1NpxnllXgTqM7oK6DLlG5YyHSZJYBVqVW',
+                image: 'https://drive.google.com/uc?export=view&id=1HFDIBeyzRvRY1oNOIdW-PYzOCct4Ewij',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1IM17VYdfAn_U6OX8bRQb5dP8ULpe1TfL',
                 context: context,
               ),
               _buildProfileCard(
-                name: 'Akansha Priya',
-                imageUrl: 'assets2/akansha2.png',
-                image: 'assets2/akansha.png',
-                companyLogo: 'assets2/lowes.png',
+                name: 'Arpit Raj',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1oYTxtmBUcGOddKs9c8IlRtnuxO4m1tcO',
+                image: 'https://drive.google.com/uc?export=view&id=1I_FUVIzkQ6Rm-TDHuCjiOHOAbFq1F7WX',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=14jtRon4ZostgPXqhs9ZsU5V4ch0zxdLV',
+                context: context,
+              ),
+              _buildProfileCard(
+                name: 'Yash Barnwal',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1wzjsL2GtOUb4IrRPIQDIeoM7Yiw6pySd',
+                image: 'https://drive.google.com/uc?export=view&id=1AkXgTpBeXa-yyU0Migfuatq4FIMlvcSf',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1-AY36f5v7kRMS3fdewxCGJFS6uNJT9w0',
+                context: context,
+              ),
+              _buildProfileCard(
+                name: 'Mohit Mayank',
+                imageUrl: 'https://drive.google.com/uc?export=view&id=1_kS-4M6_utrPRp7-SZs3JatG0GY-oMQx',
+                image: 'https://drive.google.com/uc?export=view&id=18fmkGDzUn7b37RYSwyAIwwdFoR0MxU04',
+                companyLogo: 'https://drive.google.com/uc?export=view&id=1PqV_4zU4oQaDH_WEkDkTjlpeUEqS9h9H',
                 context: context,
               ),
               // Add more profiles as needed
@@ -256,13 +270,16 @@ class PlacementPage extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Profile Image (Avatar)
+            // Profile Image (Avatar) using network image
             Container(
               margin: EdgeInsets.all(8),
               child: CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage(imageUrl),
                 backgroundColor: Colors.transparent,
+                backgroundImage: NetworkImage(imageUrl),
+                onBackgroundImageError: (exception, stackTrace) {
+                  // Optionally handle image loading error
+                },
               ),
             ),
             // Name and 'Know More' Button
@@ -297,12 +314,22 @@ class PlacementPage extends StatelessWidget {
                                 height: 400,
                                 width: 300,
                                 child: PhotoView(
-                                  imageProvider: AssetImage(image),
+                                  imageProvider: NetworkImage(image),
                                   backgroundDecoration: BoxDecoration(
                                     color: Colors.black,
                                   ),
                                   minScale: PhotoViewComputedScale.contained,
                                   maxScale: PhotoViewComputedScale.covered * 2.0,
+                                  loadingBuilder: (context, event) => Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                  errorBuilder: (context, error, stackTrace) => Center(
+                                    child: Icon(
+                                      Icons.person, // Error icon for missing image
+                                      size: 100,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
                                 ),
                               ),
                             );
@@ -320,7 +347,7 @@ class PlacementPage extends StatelessWidget {
                 ],
               ),
             ),
-            // Company Logo
+            // Company Logo with network image and fallback
             GestureDetector(
               onTap: () {
                 // When image is clicked, show it in a dialog
@@ -330,9 +357,18 @@ class PlacementPage extends StatelessWidget {
                     return Dialog(
                       backgroundColor: Colors.transparent, // Transparent background
                       child: ClipOval(
-                        child: Image.asset(
+                        child: Image.network(
                           companyLogo,
                           fit: BoxFit.contain,  // Show image in full without distortion
+                          errorBuilder: (context, error, stackTrace) => Container(
+                            width: 50,
+                            height: 50,
+                            child: Icon(
+                              Icons.business,  // Error icon for missing company logo
+                              size: 50,
+                              color: Colors.grey,
+                            ),
+                          ),
                         ),
                       ),
                     );
@@ -345,21 +381,29 @@ class PlacementPage extends StatelessWidget {
                   child: SizedBox(
                     width: 50,  // Adjust as necessary
                     height: 50,  // Adjust as necessary
-                    child: Image.asset(
+                    child: Image.network(
                       companyLogo,
                       fit: BoxFit.contain,  // Prevents image cutting, maintains aspect ratio
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        width: 50,
+                        height: 50,
+                        child: Icon(
+                          Icons.business,  // Fallback icon for missing logo
+                          size: 50,
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            )
-
-
+            ),
           ],
         ),
       ),
     );
-
-
   }
+
+
+
 }

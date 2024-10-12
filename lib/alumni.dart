@@ -6,39 +6,97 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class AlumniPage extends StatelessWidget {
-  final List<Alumni> alumniList = [
-    Alumni(
-      name: "Mohit Ranjan",
-      position: "President",
-      imageUrl: "assets2/bgmi3.jpg",
-      email: "johndoe@example.com",
-      linkedinUrl: "https://www.linkedin.com/in/johndoe/",
-    ),
-    Alumni(
-      name: "Ronit Ranjan",
-      position: "Vice President",
-      imageUrl: "assets2/cry1.jpg",
-      email: "janesmith@example.com",
-      linkedinUrl: "https://www.linkedin.com/in/janesmith/",
-    ),
-    // Add more alumni details here
-  ];
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: AlumniPage(),
+    );
+  }
+}
+
+class AlumniPage extends StatefulWidget {
+  @override
+  _BatchPageState createState() => _BatchPageState();
+}
+
+class _BatchPageState extends State<AlumniPage> {
+  String selectedBatch = "2019";
+
+  // Data for Batch 2019 and 2020
+  final Map<String, List<Map<String, String>>> batchData = {
+    "2019": [
+      {"name": "Soumen Patra", "por": "President"},
+      {"name": "Trishurya Saha", "por": "Vice President"},
+      {"name": "Ayush Kumar Choudhary", "por": "General Secretary"},
+      {"name": "Aman Rajak", "por": "Treasurer"},
+      {"name": "Raman Kumar", "por": "Technical Secretary"},
+      {"name": "Indra Karan", "por": "CA Head"},
+      {"name": "Hitika Kumari", "por": "CA Head"},
+      {"name": "Aditya Raj Srivastava", "por": "App Dev Head"},
+      {"name": "Arpit Raj Ambasta", "por": "Web Dev Head"},
+      {"name": "Naved Sohail", "por": "CP Head"},
+      {"name": "Athota Sarala", "por": "PR Head"},
+      {"name": "Nidhi Bathwal", "por": "PR Head"},
+      {"name": "M. Prathyusha", "por": "EM Head"},
+      {"name": "K. Shiva Chandra", "por": "EM Head"},
+      {"name": "Aditya Raj Sharma", "por": "Creative Head"},
+      {"name": "Priya Singh", "por": "Creative Head"},
+      {"name": "Yash Baranwal", "por": "CP Head"},
+      {"name": "Ayushi Sinha", "por": "Content Head"},
+      {"name": "Shashank Shekhar", "por": "Content Head"},
+    ],
+    "2020": [
+      {"name": "Mohit Ranjan", "por": "President"},
+      {"name": "Arpit Kumar", "por": "Vice President"},
+      {"name": "Shruti Kumari", "por": "General Secretary"},
+      {"name": "Yogesh Kumar", "por": "Treasurer"},
+      {"name": "Omkar Kumar Pandey", "por": "CA Head"},
+      {"name": "Karan Kumar", "por": "EM Head"},
+      {"name": "Akansha Priya", "por": "Content Head"},
+      {"name": "Aditya Kumar", "por": "CP Head"},
+      {"name": "Naman Raj", "por": "Creative Head"},
+      {"name": "Ankit Kumar", "por": "Web Dev Head"},
+      {"name": "Vikash Kumar", "por": "Technical Secretary"},
+      {"name": "Nilesh Dawn", "por": "Member"},
+      {"name": "Pratik Kumar", "por": "Member"},
+      {"name": "Skand Sharma", "por": "Member"},
+      {"name": "Ishika Kumari", "por": "Member"},
+      {"name": "Ankit Kumar", "por": "Member"},
+      {"name": "Rohit Kumar", "por": "Member"},
+      {"name": "Aditya", "por": "Member"},
+      {"name": "Sumit", "por": "Member"},
+      {"name": "Rohith Kumar", "por": "Member"},
+      {"name": "Nivedita", "por": "Member"},
+      {"name": "Jaychandra", "por": "Member"},
+      {"name": "Gautam", "por": "Member"},
+      {"name": "Amitha", "por": "Member"},
+      {"name": "Nandini Rastogi", "por": "Member"},
+      {"name": "Ayush Ambasta", "por": "Member"},
+
+
+
+      // Add more members for Batch 2020 as needed
+    ]
+  };
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       drawer: Drawer(
         child: Container(
-
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color(0xFF0A0549) // Semi-transparent background
+                  color: Color(0xFF0A0549), // Semi-transparent background
                 ),
                 child: Row(
                   children: <Widget>[
@@ -47,7 +105,7 @@ class AlumniPage extends StatelessWidget {
                       width: 60,
                       height: 60,
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 1),
                     Text(
                       'Society of Electronics &\nCommunication Engg.',
                       style: TextStyle(
@@ -88,7 +146,8 @@ class AlumniPage extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(Icons.group, color: Colors.black),
-                title: Text('Team Members', style: TextStyle(color: Colors.black)),
+                title:
+                    Text('Team Members', style: TextStyle(color: Colors.black)),
                 onTap: () {
                   Navigator.pushNamed(context, '/Members');
                 },
@@ -102,341 +161,185 @@ class AlumniPage extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(Icons.corporate_fare, color: Colors.black),
-                title: Text('Placement Masterclass', style: TextStyle(color: Colors.black)),
+                title: Text('Placement Masterclass',
+                    style: TextStyle(color: Colors.black)),
                 onTap: () {
                   Navigator.pushNamed(context, '/Placement');
-                },),
+                },
+              ),
             ],
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: screenHeight,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/about.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Column(
-            children: [
-              AppBar(
-          centerTitle: true,
-                title: Text(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
           'ALUMNI',
-            style: GoogleFonts.itim(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF00008B),
+          style: GoogleFonts.itim(
+            fontSize: 34,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF3686F4),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        leading: Builder(builder: (BuildContext context) {
+          return IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        }),
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          // Top buttons to select batch
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      selectedBatch = "2019";
+                    });
+                  },
+                  icon: Icon(
+                    Icons.group,
+                    color: selectedBatch == "2019"
+                        ? Colors.white // Highlight the icon when batch 2020 is selected
+                        : Color(0xFF313B49),
+                  ),
+                  label: Text(
+                    "2019-2023",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: selectedBatch == "2019"
+                          ? Colors.white // Highlight the text when batch 2020 is selected
+                          : Color(0xFF313B49),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    backgroundColor: selectedBatch == "2019"
+                        ? Color(0xFF313B49) // Highlight the button background when batch 2020 is selected
+                        : Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8), // Rounded corners
+                    ),
+                  ),
+                ),
+
+                ElevatedButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      selectedBatch = "2020";
+                    });
+                  },
+                  icon: Icon(
+                    Icons.group,
+                    color: selectedBatch == "2020"
+                        ? Colors.white // Highlight the icon when batch 2020 is selected
+                        : Color(0xFF313B49),
+                  ),
+                  label: Text(
+                    "2020-2024",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: selectedBatch == "2020"
+                          ? Colors.white // Highlight the text when batch 2020 is selected
+                          : Color(0xFF313B49),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    backgroundColor: selectedBatch == "2020"
+                        ? Color(0xFF313B49) // Highlight the button background when batch 2020 is selected
+                        : Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8), // Rounded corners
+                    ),
+                  ),
+                ),
+
+              ],
             ),
           ),
-                backgroundColor: Colors.transparent,
-              leading: Builder(
-                     builder: (BuildContext context) {
-                return IconButton(
-              icon: Icon(Icons.menu),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
-        );}),
-                elevation: 0,
-              ),
-
-
-
-      SizedBox(height: 20),
-      Padding(
-          padding: const EdgeInsets.only(left: 8.0,right:8 ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/Alumni2');
-                },
-                icon: Icon(Icons.group,
-                    color: ModalRoute.of(context)?.settings.name == '/Alumni2'
-                        ? Colors.white // Highlight the icon when on this page
-                        : Color(0xFF313B49)),
-                label: Text(
-                  "2019-2023",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: ModalRoute.of(context)?.settings.name == '/Alumni2'
-                          ? Colors.white // Highlight the text when on this page
-                          : Color(0xFF313B49)),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  backgroundColor: ModalRoute.of(context)?.settings.name == '/Alumni2'
-                      ? Color(0xFF313B49) // Highlight the button background
-                      : Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8), // Rounded corners
-                  ),
-                ),
-              ),
-              SizedBox(width: 5,),
-
-              ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/Alumni');
-                },
-                icon: Icon(Icons.group,
-                    color: ModalRoute.of(context)?.settings.name == '/Alumni'
-                        ? Colors.white // Highlight the icon when on this page
-                        : Color(0xFF313B49)),
-                label: Text(
-                  "2020-2024",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: ModalRoute.of(context)?.settings.name == '/Alumni'
-                          ? Colors.white // Highlight the text when on this page
-                          : Color(0xFF313B49)),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  backgroundColor: ModalRoute.of(context)?.settings.name == '/Alumni'
-                      ? Color(0xFF313B49) // Highlight the button background
-                      : Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8), // Rounded corners
-                  ),
-                ),
-              ),
-            ],
-          )
-
-      ),
-      SizedBox(height: 10),
-      Divider(
-        color: Colors.grey,
-        indent: 40,
-        endIndent: 40,
-        thickness: 2,
-      ),
-      SizedBox(height: 40),
-      Container(
-        height: screenHeight * 0.5, // Adjusted height for the carousel
-        child: CarouselSlider(
-          options: CarouselOptions(
-            height: double.infinity,
-            enlargeCenterPage: true,
-            autoPlay: true,
-            aspectRatio: 16 / 9,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            viewportFraction: 0.75,
+          SizedBox(height: 25,),
+          // Title and Subtitle
+          Text(
+            selectedBatch == "2019" ? "2K19 BATCH" : "2K20 BATCH",
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
           ),
-          items: alumniList.map((alumni) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(decoration: BoxDecoration(
-                  color: Colors.white, // Background color of the card
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.3), // Shadow color with some opacity
-                      spreadRadius: 2, // How much the shadow spreads
-                      blurRadius: 6, // Blur radius
-                      offset: Offset(3, 3), // Horizontal and vertical offset of shadow
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(8), // Optional: To give rounded corners
+          SizedBox(height: 10),
+          Text(
+            "Creators of Community, Architects of Tomorrow",
+            style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+          ),
+          SizedBox(height: 20),
+          // Table headings
+          Container(
+            color: Colors.grey.shade300,
+            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "NAME",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
                 ),
-
-                  child: Card(
-
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    elevation: 8,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Stack(
-                            alignment: Alignment.topCenter,
-                            children: [
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 150, // Adjusted for the green top part
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF00008B), // Top half in green
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(15),
-                                        topRight: Radius.circular(15),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(15),
-                                          bottomRight: Radius.circular(15),
-                                        ),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          SizedBox(height: 60), // Reduced space for avatar overlap
-                                          Text(
-                                            alumni.name,
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                              color: Color(0xFF00008B),
-                                            ),
-                                          ),
-                                          Text(
-                                            alumni.position,
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(height: 5), // Reduced space between text
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              IconButton(
-                                                icon: Icon(Icons.email, color: Color(0xFF00008B)),
-                                                onPressed: () async {
-                                                  final Uri emailUri = Uri(
-                                                    scheme: 'mailto',
-                                                    path: alumni.email,
-                                                  );
-
-                                                  if (await canLaunch(emailUri.toString())) {
-                                                    await launch(emailUri.toString());
-                                                  } else {
-                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                      SnackBar(
-                                                        content: Text('Could not launch email client.'),
-                                                      ),
-                                                    );
-                                                  }
-                                                },
-                                              ),
-
-
-
-                                              IconButton(
-                                                icon: FaIcon(FontAwesomeIcons.linkedin, color: Color(0xFF00008B)),
-                                                onPressed: () async {
-                                                  final url = alumni.linkedinUrl;
-                                                  if (await canLaunch(url)) {
-                                                    await launch(url);
-                                                  } else {
-                                                    throw 'Could not launch $url';
-                                                  }
-                                                },
-
-
-
-                                                // Handle LinkedIn tap
-
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              // Constrain the CircleAvatar size to avoid overflow
-                              Positioned(
-                                top: 50, // Adjust top position for the image
-                                child: GestureDetector(
-                                  onTap: () {
-                                    // Show full-screen dialog with the image
-                                    showDialog(
-                                      context: context,
-                                      builder: (_) => Dialog(
-                                        backgroundColor: Colors.black, // Black background for better viewing
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.pop(context); // Close dialog on tap
-                                          },
-                                          child: CachedNetworkImage(
-                                            imageUrl: alumni.imageUrl, // Network image URL
-                                            fit: BoxFit.contain, // Ensure image fits the full screen
-                                            placeholder: (context, url) => Center(
-                                              child: CircularProgressIndicator(), // Show loading indicator
-                                            ),
-                                            errorWidget: (context, url, error) => Icon(
-                                              Icons.error,
-                                              size: 50,
-                                              color: Colors.red, // Show error icon if image fails to load
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: CircleAvatar(
-                                    radius: 100, // Size of the avatar
-                                    backgroundColor: Colors.white,
-                                    child: ClipOval(
-                                      child: CachedNetworkImage(
-                                        imageUrl: alumni.imageUrl, // Network image URL
-                                        fit: BoxFit.cover, // Ensure image fits properly inside the circle
-                                        width: 200, // Match size of the CircleAvatar
-                                        height: 200,
-                                        placeholder: (context, url) => CircularProgressIndicator(), // Loading placeholder
-                                        errorWidget: (context, url, error) => Icon(
-                                          Icons.error,
-                                          size: 50,
-                                          color: Colors.red, // Error icon for failed loading
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-
-
-
-                            ],
+                Text(
+                  "POR",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
+                ),
+              ],
+            ),
+          ),
+          // Scrollable list of names and POR with alternating white and grey rows
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children:
+                    batchData[selectedBatch]!.asMap().entries.map((entry) {
+                  int index = entry.key;
+                  Map<String, String> member = entry.value;
+                  return Container(
+                    color: index % 2 == 0
+                        ? Colors.white
+                        : Colors.grey.shade200, // Alternating white and grey
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            member['name']!,
+                            style: TextStyle(fontSize: 16),
                           ),
-                        ),
-                      ],
+                          Text(
+                            member['por']!,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
-            );
-          }).toList(),
-        ),
-      ),
-      SizedBox(height: 45,),
-      Spacer(), // Pushes the footer to the bottom if there's remaining space
-      Footer(), // Footer at the end of the page
-            ],
+                  );
+                }).toList(),
+
+              ),
+
+            ),
           ),
-        ),
+          Footer(),
+        ],
       ),
     );
   }
-}
-
-class Alumni {
-  final String name;
-  final String position;
-  final String imageUrl;
-  final String email;
-  final String linkedinUrl;
-
-  Alumni({
-    required this.name,
-    required this.position,
-    required this.imageUrl,
-    required this.email,
-    required this.linkedinUrl,
-  });
 }

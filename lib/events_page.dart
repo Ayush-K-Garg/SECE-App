@@ -109,6 +109,12 @@ class _EventsPageState extends State<EventsPage> {
     DateTime.utc(2024, 10, 20): [
       {'title': 'Event 3', 'description': 'Nexus Day 3'}
     ],
+    DateTime.utc(2024, 4, 6): [
+      {'title': 'Ojass Event ', 'description': 'Breadboard Blitz,IOT Innovate'}
+    ],
+    DateTime.utc(2024, 4, 7): [
+      {'title': 'Ojass Event', 'description': 'Maze Marathon'}
+    ],
   };
 
   DateTime _focusedDay = DateTime.now();

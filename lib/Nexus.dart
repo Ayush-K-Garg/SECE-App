@@ -223,8 +223,8 @@ class _NexusPageState extends State<NexusPage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.corporate_fare, color: Colors.white),
-                title: Text('Placement Masterclass', style: TextStyle(color: Colors.white)),
+                leading: Icon(Icons.corporate_fare, color: Colors.black),
+                title: Text('Placement Masterclass', style: TextStyle(color: Colors.black)),
                 onTap: () {
                   Navigator.pushNamed(context, '/Placement');
                 },),

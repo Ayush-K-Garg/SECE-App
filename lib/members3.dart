@@ -197,6 +197,21 @@ class MembersPage3 extends StatelessWidget {
       email: "nityanandkumar752@gmail.com",
       linkedinUrl: "https://www.linkedin.com/in/nityanand-kumar-7399942b5/",
     ),
+    Alumni(
+      name: "Shresth Prasad",
+      position: "Member",
+      imageUrl: "https://drive.google.com/uc?id=1oUq7hjSIPap3ACvXybI91WAR0s44mpDC",
+      email: "prasadshresth04@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/shresth-prasad-160059250",
+    ),
+    Alumni(
+      name: "Hananiah Martin",
+      position: "Web Team",
+      imageUrl: "https://drive.google.com/uc?export=view&id=1QB4ZLKUWRloLeLXUELLDhywM1VBqBVkl",
+      email: "hananiahhoney5@gmail.com",
+      linkedinUrl: "https://www.linkedin.com/in/athota-hananiah-martin-12267a248/",
+    ),
+
     
 
     // Add more alumni details here
@@ -545,9 +560,9 @@ class MembersPage3 extends StatelessWidget {
                                                       child: CircularProgressIndicator(), // Show loading indicator
                                                     ),
                                                     errorWidget: (context, url, error) => Icon(
-                                                      Icons.error,
+                                                      Icons.person,
                                                       size: 50,
-                                                      color: Colors.red, // Show error icon if image fails to load
+                                                      color: Colors.grey, // Show error icon if image fails to load
                                                     ),
                                                   ),
                                                 ),
@@ -565,9 +580,9 @@ class MembersPage3 extends StatelessWidget {
                                                 height: 200,
                                                 placeholder: (context, url) => CircularProgressIndicator(), // Loading placeholder
                                                 errorWidget: (context, url, error) => Icon(
-                                                  Icons.error,
+                                                  Icons.person,
                                                   size: 50,
-                                                  color: Colors.red, // Error icon for failed loading
+                                                  color: Colors.grey, // Error icon for failed loading
                                                 ),
                                               ),
                                             ),
